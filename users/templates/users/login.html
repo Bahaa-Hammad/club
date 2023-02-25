@@ -1,0 +1,63 @@
+{% extends "templates/boilerplate.html" %}
+{% load static %}
+{% block content %} 
+<style>
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+</style>
+<section class="vh-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'login' %}">Login</a></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  <div class="container py-5 h-100">
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-primary">
+                    <p>{{message}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="{% static 'assets/img/login.svg' %}"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
+        <a href="{% url 'register' %}">Create an account</a>
+        <form method=POST>
+        {% csrf_token %}
+          <!-- Username input -->
+          <div class="form-outline mb-4">
+            <label class="form-label">Username</label>
+            {{form.username}}
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label">Password</label>
+            {{form.password}}
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

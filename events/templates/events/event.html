@@ -1,0 +1,140 @@
+{% extends "templates/boilerplate.html" %}
+{% load static %}
+{% block content %} 
+<style>
+.timeline {
+  border-left: 1px solid hsl(0, 0%, 90%);
+  position: relative;
+  list-style: none;
+}
+
+.timeline .timeline-item {
+  position: relative;
+}
+
+.timeline .timeline-item:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline .timeline-item:after {
+  background-color: hsl(0, 0%, 90%);
+  left: -38px;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+}
+
+</style> 
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
+<main id="main">
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('');">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+            <h2>{{event}}</h2>
+        </div>
+        </div>
+    </div>
+    </div>
+    <nav>
+    <div class="container">
+        <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>Event Details</li>
+        </ol>
+    </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Event Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+        {% if event_images %}
+            <div class="position-relative h-100">
+                <div class="slides-1 portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                    {% for image in event_images %}
+                        <div class="swiper-slide">
+                            <img src="{{image.get_image}}" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        {% endif %}
+    <div class="row justify-content-between gy-4 mt-4">
+
+        <div class="col-lg-8">
+            <div class="portfolio-description">
+                <h2>{{event}} Details</h2>
+                <p>
+                    {{event.description}}
+                </p>
+            </div>
+
+
+            {% if event_agendas %}
+                <!-- Section: Agenda -->
+                <section class="py-5">
+                    <ul class="timeline">
+                        {% for agenda in event_agendas %}
+                        <li class="timeline-item mb-5">
+                            <h5 class="fw-bold">{{agenda.title}}</h5>
+                            <p class="text-muted mb-2 fw-bold">{{agenda.date}} {{agenda.start_time}} - {{agenda.end_time}}</p>
+                            <p class="text-muted mb-2 fw-bold">{{agenda.venue_section}}</p>
+                            <p class="text-muted">
+                                {{agenda.description}}
+                            </p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                <!-- Section: Agenda -->
+            {% endif %}
+        </div>
+
+        <div class="col-lg-3">
+            <div class="portfolio-info">
+                <h3>Event information</h3>
+                <ul>
+                <li><strong>Category</strong> 
+                {% for tag in event.get_event_tags %}
+                    <span>{{tag}}</span>
+                {% endfor %}
+                </li>
+                <li><strong>Status</strong> <span>{{event.status}}</span></li>
+                <li><strong>Start date</strong> <span>{{event.start_date}}</span></li>
+                <li><strong>End date</strong> <span>{{event.end_date}}</span></li>
+                <li><strong>Venue</strong>{{event.venue}}</li>
+                {% if event.registration %}
+                    <li><a href="{% url 'event_register' event.id %}" class="btn-visit align-self-start">Register</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</section>
+<!-- End Portfolio Details Section -->
+</main>
+<!-- End #main -->
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
+{% endblock %}
