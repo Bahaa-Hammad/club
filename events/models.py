@@ -51,7 +51,7 @@ class Event(models.Model):
         """ Returns a thumbnail, or the default thumbnail """
         try:
             url = self.thumbnail.url
-        except:
+        except Exception:
             url = 'uploads/defaultEventThumbnail.jpg'
         return url
 
@@ -132,7 +132,7 @@ class Image(models.Model):
         """ Returns a image, or the default image """
         try:
             url = self.image.url
-        except:
+        except Exception:
             url = 'uploads/defaultEventImage.jpg'
         return url
 

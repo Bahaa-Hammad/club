@@ -21,7 +21,7 @@ def register_user(request):
             messages.success(request, 'User account was created!')
             login(request, user)
         else:
-            messages.error(request, f'An error has occurred during registration')
+            messages.error(request, 'An error has occurred during registration')
 
     context = {'form': form}
     return render(request, 'users/register.html', context)
