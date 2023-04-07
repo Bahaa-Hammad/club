@@ -20,7 +20,7 @@ services:
       
   postgres-database:
     container_name: postgres-database
-    image: 481243181382.dkr.ecr.eu-north-1.amazonaws.com/ieee-ec2:postgres:13.0-alpine
+    image: postgres:13.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:

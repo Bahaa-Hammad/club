@@ -15,4 +15,5 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py makemigrations events
 python manage.py events
+python manage.py collectstatic
 exec "$@"
