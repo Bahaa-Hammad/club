@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   web:
-    container_name: web-application
     build:
       context: ./ieee
       dockerfile: Dockerfile.prod
@@ -26,7 +25,6 @@ services:
       - ./.env.prod.db
 
   nginx:
-    container_name: nginx
     build:
       context: ./nginx
       dockerfile: Dockerfile
