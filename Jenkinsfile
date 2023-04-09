@@ -21,7 +21,7 @@ pipeline {
                 sh 'ls'
                 sh 'cd ieee'
                 sh 'ls'
-                sh 'py ieee/manage.py test ./ieee'
+                sh 'py ieee-pipeline/ieee/manage.py test ./ieee'
             }
         }
         stage('Deploy') { 
