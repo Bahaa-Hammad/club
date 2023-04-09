@@ -1,13 +1,6 @@
 pipeline { 
     agent any 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/Bahaa-Hammad/ieee.git']]])
-                }
-            }
-        }
         stage('Build') { 
             steps { 
                 sh 'echo "Building Containers"'
@@ -18,7 +11,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'echo "Testing web Container"'
-                sh 'docker exec ieee_web_1 python ieee/manage.py test ./ieee'
+                sh 'docker exec -T web python ieee/manage.py test ./ieee'
             }
         }
         stage('Deploy') { 
