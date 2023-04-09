@@ -12,7 +12,6 @@ pipeline {
             steps { 
                 sh 'echo "Building Containers"'
                 sh 'docker-compose -f docker-compose.prod.yml build'
-                sh 'docker-compose -f docker-compose.prod.yml build'
             }
         }
         stage('Run Containers') { 
