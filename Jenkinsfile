@@ -12,19 +12,24 @@ pipeline {
             steps { 
                 sh 'echo "Building Containers"'
                 sh 'docker-compose -f docker-compose.prod.yml build'
+                sh 'docker-compose -f docker-compose.prod.yml build'
+            }
+        }
+        stage('Run Containers') { 
+            steps { 
+                sh 'echo "Building Containers"'
+                sh 'docker-compose -f docker-compose.prod.yml up -d'
             }
         }
         stage('Test'){
             steps {
                 sh 'echo "Testing web Container"'
-                sh 'docker run ieee_web_1'
                 sh 'docker exec ieee_web_1 python ieee/manage.py test ./ieee'
             }
         }
         stage('Deploy') { 
             steps { 
                 sh 'echo "Deploying to staging"'
-                sh 'docker-compose -f docker-compose.prod.yml up -d'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py migrate'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py makemigrations events'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py migrate events'
