@@ -18,10 +18,9 @@ pipeline {
             steps {
                 sh 'echo "Testing web Container"'
                 sh 'pwd'
-                sh 'ls'
-                sh 'cd ieee'
-                sh 'ls'
-                sh 'py ieee-pipeline/ieee/manage.py test ./ieee'
+                dir('ieee') {
+                    sh 'python manage.py test'
+                }
             }
         }
         stage('Deploy') { 
