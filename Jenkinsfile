@@ -17,7 +17,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'echo "Testing web Container"'
-                sh 'docker exec -T web python ieee/manage.py test ./ieee'
+                sh 'docker exec web python ieee/manage.py test ./ieee'
             }
         }
         stage('Deploy') { 
