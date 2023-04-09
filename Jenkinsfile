@@ -23,10 +23,10 @@ pipeline {
         stage('Deploy') { 
             steps { 
                 sh 'echo "Deploying to staging"'
+                sh 'docker-compose -f docker-compose.prod.yml up -d'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py migrate'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py makemigrations events'
                 sh 'docker-compose -f docker-compose.prod.yml exec -T web python manage.py migrate events'
-                sh 'docker-compose -f docker-compose.prod.yml up -d'
             }
         }
     }
