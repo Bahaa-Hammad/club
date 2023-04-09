@@ -17,6 +17,8 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'echo "Testing web Container"'
+                sh 'pwd'
+                sh 'cd ieee'
                 sh 'python ieee/manage.py test ./ieee'
             }
         }
