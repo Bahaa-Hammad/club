@@ -16,5 +16,4 @@ python manage.py migrate
 python manage.py makemigrations events
 python manage.py events
 python manage.py collectstatic
-python manage.py test
 exec "$@"
