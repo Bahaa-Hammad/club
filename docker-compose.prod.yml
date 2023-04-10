@@ -7,6 +7,12 @@ services:
       dockerfile: Dockerfile.prod
     image: 481243181382.dkr.ecr.eu-north-1.amazonaws.com/ieee-ec2:web
     command: gunicorn club.wsgi:application --bind 0.0.0.0:8000
+    logging:
+      driver: "awslogs"
+      options:
+          awslogs-region: "us-east-1"
+          awslogs-group: "your-log-group"
+          awslogs-stream: "your-log-stream"
     volumes:
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
