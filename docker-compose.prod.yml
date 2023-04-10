@@ -11,8 +11,7 @@ services:
       driver: "awslogs"
       options:
           awslogs-region: "us-east-1"
-          awslogs-group: "ieee-ec2"
-          awslogs-stream: "ieee-ec2"
+          awslogs-create-group: "true"
     volumes:
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
