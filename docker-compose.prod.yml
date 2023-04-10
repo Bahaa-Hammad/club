@@ -10,7 +10,7 @@ services:
     logging:
       driver: "awslogs"
       options:
-          awslogs-region: "us-east-1"
+          awslogs-region: "eu-north-1"
           awslogs-group: "arn:aws:logs:eu-north-1:481243181382:log-group:ieee-ec2:*"
           awslogs-stream: "ieee-ec2"
           awslogs-create-group: "true"
