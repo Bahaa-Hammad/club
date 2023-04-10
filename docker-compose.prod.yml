@@ -10,7 +10,9 @@ services:
     logging:
       driver: "awslogs"
       options:
-          awslogs-region: "eu-north-1"
+          awslogs-region: "us-east-1"
+          awslogs-group: "ieee-ec2"
+          awslogs-stream: "ieee-ec2"
     volumes:
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
