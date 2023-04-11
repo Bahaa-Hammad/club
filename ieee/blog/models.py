@@ -19,7 +19,6 @@ class Post(models.Model):
     thumbnail = models.ImageField(verbose_name="Post Thumbnail", null=True, blank=True)
     date = models.DateField(auto_now=True, null=True, blank=True)
     content = models.TextField(validators=[MinLengthValidator(10)], null=True, blank=True)
-    tags = models.ManyToManyField(Tag, null=True, blank=True)
     is_published = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
