@@ -7,6 +7,7 @@ from django.urls import path
 urlpatterns = [
     path('', include('landing_page.urls')),
     path('event/', include('events.urls')),
+    path('blog/', include('blog.urls')),
     path('user/', include('users.urls')),
     path('admin/', admin.site.urls),
 ]

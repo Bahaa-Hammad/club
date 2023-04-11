@@ -59,7 +59,7 @@
           <li><a href="{% url 'home'%}#hero">Home</a></li>
           <li><a href="{% url 'home'%}#portfolio">Portfolio</a></li>
           <!-- <li><a href="#team">Team</a></li> -->
-          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <li><a href="{% url 'blog'%}">Blog</a></li>
           <!-- <li><a href="#contact">Contact</a></li> -->
           {% if not  user.is_authenticated %}
           <li><a href="{% url 'login' %}">Login</a></li>

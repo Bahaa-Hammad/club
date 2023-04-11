@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users',
     'events',
     'landing_page',
+    'blog',
 ]
 
 MIDDLEWARE = [
