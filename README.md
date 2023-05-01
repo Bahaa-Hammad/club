@@ -1,7 +1,7 @@
 # IEEE 
 
 #CICD
-![image](https://user-images.githubusercontent.com/89856041/235525252-f44eb7ca-99e7-46bf-a0a5-8fecc276617c.png)
+<img width="3631" alt="CICD (1)" src="https://user-images.githubusercontent.com/89856041/235525373-1ccf4e2c-fa43-4406-afef-43ac0c013b10.png">
 
 # Overview
 
