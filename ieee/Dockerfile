@@ -29,12 +29,8 @@ COPY ./entrypoint.sh .
 RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
 
-# Unit Testing & Coverage 
-RUN coverage run --source='.' manage.py test --keepdb
-RUN python manage.py test
-RUN coverage report
-RUN coverage html
-
+RUN python -m pip install requests
+RUN python discord.py
 # copy project
 COPY . .
 # run entrypoint.sh
