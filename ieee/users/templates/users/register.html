@@ -1,56 +1,92 @@
 {% extends "templates/boilerplate.html" %}
+
 {% load static %}
-{% block content %} 
+
+{% block styles %}
+
 <style>
+.register-form {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 30px;
+}
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.register-form label {
+  font-weight: bold;
+}
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  border-radius: 5px;
+  border: none;
+  background-color: #eee;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.register-form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
 .divider:after,
 .divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
 }
 </style>
+{% endblock %}
+
+{% block content %}
+
 <section class="vh-100">
   <div class="container py-5 h-100">
+    {% if messages %}
     <div class="container">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-primary">
-                    <p>{{message}}</p>
-                </div>
-            {% endfor %}
-        {% endif %}
+      {% for message in messages %}
+      <div class="alert alert-primary" role="alert">
+        <p>{{ message }}</p>
+      </div>
+      {% endfor %}
     </div>
+    {% endif %}
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="{% static 'assets/img/login.svg' %}"
-          class="img-fluid" alt="Phone image">
+        <img src="{% static 'assets/img/login.svg' %}" class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
-        <form method=POST>
-        {% csrf_token %}
+        <form class="register-form" method="POST">
+          {% csrf_token %}
+          <h2>Register</h2>
           <div class="form-outline mb-4">
             <label class="form-label">Username</label>
-            {{form.username}}
+            {{ form.username }}
           </div>
           <div class="form-outline mb-4">
             <label class="form-label">Email</label>
-            {{form.email}}
+            {{ form.email }}
           </div>
           <div class="form-outline mb-4">
             <label class="form-label">Name</label>
-            {{form.first_name}}
+            {{ form.first_name }}
           </div>
-
           <div class="form-outline mb-4">
             <label class="form-label">Password</label>
-            {{form.password1}}
+            {{ form.password1 }}
           </div>
           <div class="form-outline mb-4">
-            <label class="form-label">confirm Password</label>
-            {{form.password2}}
+            <label class="form-label">Confirm Password</label>
+            {{ form.password2 }}
           </div>
-
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
         </form>
