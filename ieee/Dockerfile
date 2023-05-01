@@ -12,7 +12,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
 
-# lint
+# Static Testing (lint)
 RUN pip install --upgrade pip
 RUN pip install flake8==3.9.2
 COPY . .
@@ -28,7 +28,12 @@ RUN pip install -r requirements.txt
 COPY ./entrypoint.sh .
 RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
+
+# Unit Testing & Coverage 
+RUN coverage run --source='.' manage.py test --keepdb
 RUN python manage.py test
+RUN coverage report
+RUN coverage html
 
 # copy project
 COPY . .
