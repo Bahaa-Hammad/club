@@ -1,4 +1,8 @@
 # IEEE 
+
+#CICD
+![image](https://user-images.githubusercontent.com/89856041/235525252-f44eb7ca-99e7-46bf-a0a5-8fecc276617c.png)
+
 # Overview
 
 A content managment solution that helps university club manage their diffrent types of content. This version focuses on event planners and organizers to manage their events efficiently and effectively. It includes features such as event registration, guests management, event marketing, event management. Event managers can use the system to manage multiple events, such as seminars, conferences, field trips, and festivals. Each event can be pulished with dynamic agenda for guests to follow through out the event. It also provides valuable insights into event performance and helps to identify potential areas of improvement.
