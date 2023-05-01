@@ -1,4 +1,4 @@
-# IEEE
+# IEEE 
 # Overview
 
 A content managment solution that helps university club manage their diffrent types of content. This version focuses on event planners and organizers to manage their events efficiently and effectively. It includes features such as event registration, guests management, event marketing, event management. Event managers can use the system to manage multiple events, such as seminars, conferences, field trips, and festivals. Each event can be pulished with dynamic agenda for guests to follow through out the event. It also provides valuable insights into event performance and helps to identify potential areas of improvement.
@@ -191,7 +191,7 @@ Frontend:
     │           register.html
 ```
 
-# Installation
+# Installation (Without docker)
 * clone repo
 * create a virtual environment and activate
 * pip install virtualenv
@@ -229,4 +229,23 @@ $ python manage.py test
 * Now you can open http://localhost:8000 in your browser
 
 # Future enhancement plans
-* Implement blog managment with interactive commenting between club and members
+* Implement blog managment
+
+# How To run with docker
+
+Development
+Uses the default Django development server. 
+
+$ docker-compose up -d --build
+Test it out at http://localhost:8000. 
+
+Production
+Uses gunicorn + nginx.
+
+Build the images and run the containers:
+
+$ docker-compose -f docker-compose.prod.yml up -d --build
+Test it out at http://localhost:1337. 
+
+# Final Report 
+https://docs.google.com/document/d/1FuBl4ddKi2MyzWrf69zwd5Cxo8L311mLWYzdabKhZPY/edit?usp=sharing
