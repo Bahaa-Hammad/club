@@ -235,16 +235,18 @@ $ python manage.py test
 
 Development
 Uses the default Django development server. 
-
+```
 $ docker-compose up -d --build
+```
 Test it out at http://localhost:8000. 
 
 Production
 Uses gunicorn + nginx.
 
 Build the images and run the containers:
-
+```
 $ docker-compose -f docker-compose.prod.yml up -d --build
+```
 Test it out at http://localhost:1337. 
 
 # Final Report 
