@@ -1,7 +1,5 @@
-# IEEE 
-
 # CICD
-<img width="3631" alt="CICD (1)" src="https://user-images.githubusercontent.com/89856041/235525373-1ccf4e2c-fa43-4406-afef-43ac0c013b10.png">
+<img width="3631" alt="CICD" src="https://user-images.githubusercontent.com/89856041/235525373-1ccf4e2c-fa43-4406-afef-43ac0c013b10.png">
 
 # Overview
 
@@ -254,4 +252,4 @@ $ docker-compose -f docker-compose.prod.yml up -d --build
 Test it out at http://localhost:1337. 
 
 # Final Report 
-https://docs.google.com/document/d/1FuBl4ddKi2MyzWrf69zwd5Cxo8L311mLWYzdabKhZPY/edit?usp=sharing
+https://drive.google.com/file/d/1vaWftIpNQaFDyMNDKngItByWMkdoyJDl/view?usp=sharing
